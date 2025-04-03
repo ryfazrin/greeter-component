@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    button {
+      font-family: Comic Sans MS;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aplikasi Host</h1>
+  
+  <!-- Container komponen -->
+  <div id="my-greeter"></div>
+
+  <script src="dist/compiled-greeter-component.cjs"></script>
+  
+  <script>
+    Greater.init('#my-greeter', {
+      message: 'Selamat datang di host app!'
+    });
+  </script>
+</body>
+</html>
