@@ -45,7 +45,7 @@ pnpm test       # Jalankan semua test
 
 ## 🌐 Integrasi ke Aplikasi Host
 
-### Contoh Host App (`host-app.html`):
+### Contoh Host App (`demo/index.html`):
 ```html
 <!DOCTYPE html>
 <html>
@@ -57,7 +57,7 @@ pnpm test       # Jalankan semua test
   <div id="my-greeter"></div>
 
   <!-- Sertakan komponen -->
-  <script src="dist/compiled-greeter-component.cjs"></script>
+  <script src="../compiled-greeter-component.cjs"></script>
   
   <!-- Inisialisasi -->
   <script>
@@ -70,12 +70,14 @@ pnpm test       # Jalankan semua test
 ```
 
 ### Uji di Browser:
-1. Jalankan server lokal:
+1. Jalankan Host App:
 ```bash
-npx serve .
+pnpm run build
+
+pnpm run preview
 ```
 2. Buka di browser:  
-`http://localhost:3000/host-app.html`
+`http://localhost:4173/demo/index.html`
 
 ---
 

@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import copy from 'rollup-plugin-copy';
 
 export default defineConfig({
   plugins: [
@@ -9,6 +10,16 @@ export default defineConfig({
           isCustomElement: (tag) => tag === 'greeter-component'
         }
       }
+    }),
+    copy({
+      targets: [
+        { 
+          src: 'demo/index.html', 
+          dest: 'dist/demo',
+          rename: 'index.html' 
+        }
+      ],
+      hook: 'writeBundle'
     })
   ],
   build: {
