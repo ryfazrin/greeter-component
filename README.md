@@ -1,5 +1,101 @@
-# Vue 3 + Vite
+# Greeter Component - Vue 3 Web Component
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Sebuah komponen Vue 3 mandiri yang dapat disematkan ke aplikasi pihak ketiga dengan tag `<script>`.
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## 📦 Teknologi Utama
+- Vue 3
+- Vite (Build Tool)
+- Vitest + Vue Test Utils (Testing)
+- JSDOM (Simulasi DOM)
+
+---
+
+## 🛠️ Instalasi & Pengembangan
+
+### Prasyarat
+- Node.js ≥ v18
+- NPM/Yarn
+
+### Langkah 1: Clone Repositori
+```bash
+git clone https://github.com/ryfazrin/greeter-component.git
+cd greeter-component
+```
+
+### Langkah 2: Install Dependensi
+```bash
+pnpm install
+```
+
+### Langkah 3: Build Komponen
+```bash
+pnpm run build
+```
+File hasil build akan muncul di:  
+`dist/compiled-greeter-component.cjs`
+
+---
+
+## 🧪 Menjalankan Test
+```bash
+pnpm test       # Jalankan semua test
+```
+
+---
+
+## 🌐 Integrasi ke Aplikasi Host
+
+### Contoh Host App (`host-app.html`):
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Host App</title>
+</head>
+<body>
+  <!-- Container komponen -->
+  <div id="my-greeter"></div>
+
+  <!-- Sertakan komponen -->
+  <script src="dist/compiled-greeter-component.cjs"></script>
+  
+  <!-- Inisialisasi -->
+  <script>
+    Greater.init('#my-greeter', {
+      message: 'Halo dari aplikasi host app!'
+    });
+  </script>
+</body>
+</html>
+```
+
+### Uji di Browser:
+1. Jalankan server lokal:
+```bash
+npx serve .
+```
+2. Buka di browser:  
+`http://localhost:3000/host-app.html`
+
+---
+
+## 🚀 Fitur
+- Render tombol dengan pesan kustom
+- Log pesan ke console saat tombol diklik
+- Isolasi CSS (scoped styles)
+- Kompatibel dengan berbagai framework/plain JS
+
+---
+
+## 🚨 Troubleshooting
+**Error tests: "document is not defined"**  
+- Pastikan JSDOM terinstall: `pnpm install jsdom --save-dev`
+
+**Komponen tidak muncul**  
+- Pastikan path file JS benar dan `init()` dipanggil setelah DOM siap
+
+---
+
+## 📜 Lisensi
+
+MIT License
